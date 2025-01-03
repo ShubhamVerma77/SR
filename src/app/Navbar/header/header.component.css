@@ -1,0 +1,7 @@
+.active span {
+    color: #22c55e; /* Tailwind's green-500 */
+  }
+  .active span + span {
+    transform: scaleX(1); /* Full underline for active link */
+  }
+  
