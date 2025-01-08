@@ -1,0 +1,2 @@
+ng build --base-href "https://ShubhamVerma77.github.io/SR/"
+npx angular-cli-ghpages --dir=dist/routing-angular/browser
