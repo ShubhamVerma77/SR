@@ -5,8 +5,15 @@ import { LoginComponent } from './login/login.component';
 import { ProductsComponent } from './products/products.component';
 import { ErrorComponent } from './error/error.component';
 import { UsersComponent } from './users/users.component';
+import { HomeComponent } from './home/home.component';
+import { authGuard } from './service/auth.guard';
 
 export const routes: Routes = [
+    {
+        path:'',
+     component: HomeComponent,
+     title: 'SR',
+    },
     {
         'path': 'home',
         // component: HomeComponent,
@@ -34,17 +41,16 @@ export const routes: Routes = [
           loadComponent: () => import('./products/products.component').then(c=>c.ProductsComponent),
           title: 'Product',
     },
-    {
-        path:"",
-        redirectTo:'/home',
-        pathMatch:'full'
-    },
+
     {
        path:'user',
-       component:UsersComponent
+       component:UsersComponent,
+       title: 'User',
+       canActivate:[authGuard]
     },
     {
         path:'**',
-        component: ErrorComponent
+        component: ErrorComponent,
+        title: 'Page not found',
     }
 ];

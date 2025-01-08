@@ -19,7 +19,7 @@ export class ContactComponent {
 
  contactform= new FormGroup({
   name:new FormControl('', Validators.required),
-  phonemumber: new FormControl('', Validators.required),
+  phonenumber: new FormControl('', Validators.required),
   message:new FormControl('', Validators.required)
   
  });
