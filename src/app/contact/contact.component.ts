@@ -24,20 +24,28 @@ export class ContactComponent {
   
  });
 submitted: boolean = false;
- Contactus(data:any) {
+
+Contactus(data:any){
   this.submitted = true;
-this.service.postData(data).subscribe(res=>{
   if(this.contactform.valid){
-    alert("Data Saved Successfully")
-    console.log(res);
-    this.submitted = false;
-    this.contactform.reset();
+    this.service.postData(data).subscribe((res:any) =>{
+      if(res){
+        alert("Data Saved Successfully")
+        console.log(res);
+        this.submitted = false;
+        this.contactform.reset();
+
+      }
+      else{
+        alert("Error");
+        this.submitted = true;
+      }
+    })
   }
   else{
     alert("Please Fill All The Fields");
     this.submitted = true;
   }
+}
 
-})
- }
 }
